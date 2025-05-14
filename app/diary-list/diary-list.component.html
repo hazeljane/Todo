@@ -1,0 +1,36 @@
+<div class="diary-list">
+  <app-add-entry (entryAdded)="onEntryAdded()"></app-add-entry>
+
+  <div *ngIf="latestEntry" class="latest-entry">
+    <h3>{{ latestEntry.date }} at {{ latestEntry.time }}</h3>
+    <p>{{ latestEntry.content }}</p>
+  </div>
+  <div class="button">
+  <button (click)="toggleShowAll()" *ngIf="latestEntry" class="toggle-button">
+    {{ showAll ? 'Hide All Entries' : 'Show All Entries' }}
+  </button>
+
+  <button (click)="toggleSelectAllEntries()" class="toggle-button">
+    {{ selectedEntries.size === allEntries.length ? 'Unselect All' : 'Select All' }}
+  </button>    
+  </div>
+
+
+  <button *ngIf="selectedEntries.size > 0" (click)="deleteSelectedEntries()" class="delete-selected-button">
+    Delete Selected
+  </button>
+
+  <div *ngIf="showAll" class="all-entries">
+    <div *ngFor="let entry of allEntries" class="entry">
+      <input
+        type="checkbox"
+        [checked]="selectedEntries.has(entry.id)"
+        (change)="toggleSelectEntry(entry.id)"
+        class="entry-checkbox"
+      />
+      <h3>{{ entry.date }} at   {{ entry.time }}</h3>
+      <p>{{ entry.content }}</p>
+      <button (click)="deleteEntry(entry.id)" class="delete-button">Delete</button>
+    </div>
+  </div>
+</div>
