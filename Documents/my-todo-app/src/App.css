@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+.section{
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+.container{
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-family: Poppins,sans-serif;
+	background: wheat;
+	width: 300px;
+	height: auto;
+	padding: 10px;
+	text-align: center;
+}
+label{
+	color: black;
+	position: absolute;
+	font-size: 10px;
+	transform: translate(10px);
+}
+h1{
+	color: orangered;
+	text-shadow: 2px 2px 2px brown;
+}
+input{
+	outline: none;
+	color: black;
+	padding: 10px;
+	border: 2px solid black;
+	background: orange;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+input:focus{
+
+	box-shadow: 0 0 10px inset black;
+}
+button{
+	background: orange;
+	padding: 10px;
+	border:2px solid black;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+button:focus{
+	transform: scale(0.9);
+	background: wheat;
+}
+ul{
+	display: flex;
+	gap: 20px;
+	transform: translate(-20px);
+	flex-direction: column;
+}
+li{
+	width: 203px;
+	background: orange;
+	padding: 10px;
+	border-radius: 10px;
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0 10px inset brown;
+}
+li button{
+	background: gray;
+	border-radius: 5px;
+	border: 2px solid black;
+
+}
+li button:hover{
+	transform: scale(1.1);
+	box-shadow: 0 0 5px inset white;
+}
