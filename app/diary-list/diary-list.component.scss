@@ -1,0 +1,217 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.diary-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  height: 100vh; 
+  padding: 2rem;
+}
+
+.diary-list-container {
+  max-width: 800px;
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.diary-list-container:hover {
+  transform: translateY(-5px);
+}
+
+.divider {
+  margin: 2rem 0;
+  border: none;
+  border-top: 2px solid #ddd;
+  opacity: 0.6;
+}
+
+.latest-entry, .all-entries {
+  margin-top: 2rem;
+}
+
+.latest-entry{
+  justify-content: space-between;
+  width: 300px;
+  display: flex;
+  background-color:#AD5757;
+  border-radius: 10px;
+  padding:1em 1.7rem;
+  color: wheat;
+  margin-bottom: 10px;
+}
+.entry-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  animation: fadeIn 0.5s ease;
+}
+
+.entry-card:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.entry-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+app-add-entry{
+  margin-bottom: 0;
+}
+
+.toggle-container {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.button{
+  display: display;
+  width: 350px;
+}
+
+.button button{
+  margin-left: 23px;
+}
+
+.toggle-button, .delete-button, .delete-selected-button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-button:hover, .delete-button:hover, .delete-selected-button:hover {
+  background-color: #303f9f;
+  transform: scale(1.05);
+}
+
+.toggle-button:active, .delete-button:active, .delete-selected-button:active {
+  transform: scale(1);
+}
+
+.delete-selected-button {
+  background-color: #f44336;
+  margin-top: 1rem;
+}
+
+.delete-selected-button:hover {
+  background-color: #d32f2f;
+}
+
+.entry-card p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.entry {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.entry-checkbox {
+  margin-right: 10px;
+}
+
+.entry-date-time h3 {
+  font-size: 1rem;
+  color: #333;
+}
+
+.entry-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 10px;
+}
+
+.delete-button {
+  background-color: #e57373;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: #c62828;
+}
+
+.entry.selected {
+  border: 2px solid #3f51b5;
+}
+
+.toggle-button:focus, .delete-button:focus, .delete-selected-button:focus,
+.entry-card:focus {
+  outline: 3px solid #4caf50;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .diary-list-container {
+    padding: 1rem;
+  }
+
+  .entry-card {
+    padding: 1rem;
+  }
+
+  .toggle-button, .delete-button, .delete-selected-button {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .entry-content {
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
