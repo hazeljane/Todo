@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap');
+
+/* App.css */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  background-color: #3E2F1C; /* dark coffee brown background */
+  font-family: 'Akshar', sans-serif;
+  color: #F5E6C8; /* cream text */
+  min-height: 100vh;
+}
+
+a {
+  color: #947848;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #A67B5B;
+}
+
+button {
+  background-color: #947848;
+  color: #F5E6C8;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #A67B5B;
+  border-color: #60371C;
+}
+
+nav {
+  background-color: transparent; /* keep navbar transparent or semi-transparent */
+  font-family: 'Akshar', sans-serif;
+}
+
+.card {
+  background: #60371C;
+  border-radius: 30px;
+  border: 6px solid #A67B5B;
+  box-shadow: 0 0 10px inset #000000;
+  color: #F5E6C8;
+  padding: 30px 20px;
+  font-size: 25px;
+  font-family: 'Ribeye Marrow', cursive;
+  max-width: 500px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+/* Layout tweaks */
+.container {
+  padding: 1rem;
+}
