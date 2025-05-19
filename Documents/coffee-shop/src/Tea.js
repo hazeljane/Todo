@@ -24,12 +24,10 @@ export default function Tea({ addToCart }) {
         onClick={() => navigate("/coffee")}
         style={{ 
           padding:"5px 0",
-          textAlign:"center",
           width:"300px",
           borderRadius: "10px",
           textAlign: "center",
           background: "#A17557",
-          borderRadius: "5px",
           border: "2px solid black",
           cursor: "pointer", 
           fontFamily: "Sansita Swashed,cursive", }}

@@ -1,4 +1,3 @@
-// src/BackToHomeButton.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +21,7 @@ export default function BackToHomeButton() {
       aria-label="Back to Home"
       title="Back to Home"
     >
-      {/* Simple left arrow icon */}
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

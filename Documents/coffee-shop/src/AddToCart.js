@@ -1,12 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function AddToCart({ cart, removeFromCart, updateQuantity }) {
   const navigate = useNavigate();
 
-  // Flatten cart object to array with category info
   const allItems = Object.entries(cart).flatMap(([category, items]) =>
     items.map((item) => ({ ...item, category }))
   );
@@ -18,7 +16,6 @@ export default function AddToCart({ cart, removeFromCart, updateQuantity }) {
   const touchCurrentX = useRef(0);
   const swipingKey = useRef(null);
 
-  // Toggle selection of item by key (category-id)
   const toggleItem = (key) => {
     setSelectedItems((prev) => {
       const newSet = new Set(prev);
@@ -28,7 +25,6 @@ export default function AddToCart({ cart, removeFromCart, updateQuantity }) {
     });
   };
 
-  // Handle changing quantity input
   const handleQuantityChange = (item, newQty) => {
     const qty = parseInt(newQty, 10);
     if (!isNaN(qty) && qty > 0) {
@@ -36,36 +32,29 @@ export default function AddToCart({ cart, removeFromCart, updateQuantity }) {
     }
   };
 
-  // Items selected for ordering
   const selectedArray = allItems.filter(item =>
     selectedItems.has(`${item.category}-${item.id}`)
   );
 
-  // Calculate total price of selected items
   const total = selectedArray.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // Proceed to order selected items
   const handleOrderSelected = () => {
     if (selectedArray.length === 0) {
       alert("Please select at least one item to order.");
       return;
     }
 
-    // Navigate to payment passing selected items
     navigate("/payment", { state: { selectedItems: selectedArray } });
 
-    // Remove ordered items from cart
     selectedArray.forEach((item) => {
       removeFromCart(item.id, item.category);
     });
   };
 
-  // Navigate to order history page
   const handleGoToHistory = () => {
     navigate("/history");
   };
 
-  // Swipe handlers for touch/mouse
   const handleTouchStart = (e, key) => {
     touchStartX.current = e.touches ? e.touches[0].clientX : e.clientX;
     touchCurrentX.current = touchStartX.current;
@@ -98,7 +87,19 @@ export default function AddToCart({ cart, removeFromCart, updateQuantity }) {
 
       <div style={{ marginBottom: "1rem", display: "flex", gap: "1rem" }}>
         <button onClick={() => navigate("/coffee")}>
-          <FontAwesomeIcon icon={faHouse} /> Back Home
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            viewBox="0 0 24 24"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg> Back
         </button>
         <button onClick={handleGoToHistory}>View Order History</button>
       </div>

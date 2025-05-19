@@ -29,14 +29,9 @@ export default function Payment({
       return;
     }
 
-    // 1. Add order to history (pass selectedItems and paymentMethod)
     addOrderToHistory(selectedItems, paymentMethod);
 
-    // 2. Remove ordered items from the cart (pass selectedItems)
     removeOrderedItemsFromCart(selectedItems);
-
-    // 3. Optionally, you can clear the cart fully here instead if you want
-    // clearCart();
 
     setConfirmed(true);
   };
@@ -181,7 +176,7 @@ export default function Payment({
                 checked={paymentMethod === "cod"}
                 onChange={() => setPaymentMethod("cod")}
               />
-              <span>Pay on Delivery</span>
+              <span>Cash on Delivery</span>
             </label>
 
             <button

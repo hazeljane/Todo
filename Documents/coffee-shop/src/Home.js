@@ -80,11 +80,9 @@ export default function Home() {
         style={leftImageStyle}
       />
 
-      {/* Right content */}
       <div style={rightContentStyle}>
         <SimpleNavbar />
 
-        {/* Circular text and logo container */}
         <div
           style={{
             position: "relative",
@@ -105,7 +103,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Center logo */}
           <img
             src={coffeeLogo}
             alt="Coffee Logo"
@@ -123,7 +120,6 @@ export default function Home() {
             }}
           />
 
-          {/* Bottom curved text */}
           <div style={circularTextBottomStyle}>
             <CircularText
               text="Coffee House"
@@ -136,7 +132,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Order Now */}
         <p
           style={{
             marginTop: "2rem",

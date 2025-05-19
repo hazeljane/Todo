@@ -195,7 +195,7 @@ export default function History({ orderHistory, addMultipleToCart, clearHistory 
               const allItems = orderHistory.flatMap((order) =>
                 order.items.map((item) => ({ ...item }))
               );
-              addMultipleToCart(allItems, "espresso"); // Note: You may want to adjust category handling here
+              addMultipleToCart(allItems, "espresso"); 
               navigate("/cart");
             }}
             style={{
@@ -236,7 +236,7 @@ export default function History({ orderHistory, addMultipleToCart, clearHistory 
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#357ABD")}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#4a90e2")}
         >
-          ← Back to Home
+          ← Back 
         </button>
       </div>
     </div>

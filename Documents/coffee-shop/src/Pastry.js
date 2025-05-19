@@ -26,9 +26,7 @@ export default function Pastry({ addToCart }) {
           textAlign:"center",
           width:"300px",
           borderRadius: "10px",
-          textAlign: "center",
           background: "#A17557",
-          borderRadius: "5px",
           border: "2px solid black",
           cursor: "pointer", 
           fontFamily: "Sansita Swashed,cursive",}}>Pastry Menu</h1>
@@ -56,15 +54,12 @@ export default function Pastry({ addToCart }) {
             
             <button 
              style ={{
-                marginTop:"-30px",
                 borderRadius: "50%",
                 padding:"5px",
-                border: "2px solid black",
-                boxShadow: "0 0 10px inset black",
+                border: "2px solid white",
+                boxShadow: "0 0 2px black",
                 background: "white",
-                width: "50px",
-                height:"50px",
-                fontSize:"24px",
+                width: "35px",
 
               }}
               onClick={() => addToCart({ ...product, quantity: 1 }, "pastry")}

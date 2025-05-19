@@ -13,7 +13,6 @@ import Tea from "./Tea";
 import Pastry from "./Pastry";
 import BlendedBeverage from "./BlendedBeverage";
 import About from "./About";
-import Service from "./Service";
 import AddToCart from "./AddToCart";
 import Payment from "./Payment";
 import History from "./History";
@@ -21,7 +20,7 @@ import Contact from "./Contact";
 import "./App.css";
 
 function App() {
-  // Initialize cart from localStorage or empty categories
+
   const [cartItems, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
     return savedCart
@@ -29,23 +28,19 @@ function App() {
       : { espresso: [], refresher: [], tea: [], pastry: [], blended: [] };
   });
 
-  // Initialize order history from localStorage or empty
   const [orderHistory, setOrderHistory] = useState(() => {
     const savedHistory = localStorage.getItem("orderHistory");
     return savedHistory ? JSON.parse(savedHistory) : [];
   });
 
-  // Persist cartItems to localStorage when changed
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // Persist orderHistory to localStorage when changed
   useEffect(() => {
     localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
   }, [orderHistory]);
 
-  // Clear cart helper
   const clearCart = () => {
     setCart({
       espresso: [],
@@ -56,7 +51,6 @@ function App() {
     });
   };
 
-  // Add single item to cart by category, merging quantity if item exists
   const addToCart = (item, category) => {
     setCart((prev) => {
       const updatedCategory = Array.isArray(prev[category]) ? [...prev[category]] : [];
@@ -78,7 +72,6 @@ function App() {
     });
   };
 
-  // Remove item by id from a category
   const removeFromCart = (id, category) => {
     setCart((prev) => {
       const updatedCategory = prev[category].filter((item) => item.id !== id);
@@ -86,7 +79,6 @@ function App() {
     });
   };
 
-  // Update quantity for a specific item in a category
   const updateQuantity = (id, category, newQty) => {
     setCart((prev) => {
       const updatedCategory = prev[category].map((item) =>
@@ -96,7 +88,6 @@ function App() {
     });
   };
 
-  // Add multiple items at once to a category (used for re-adding from history)
   const addMultipleToCart = (items, category) => {
     setCart((prev) => {
       let updatedCategory = [...(prev[category] || [])];
@@ -114,7 +105,6 @@ function App() {
     });
   };
 
-  // After an order is placed, remove ordered quantities from cart
   const removeOrderedItemsFromCart = (orderedItems) => {
     setCart((prevCart) => {
       const updatedCart = { ...prevCart };
@@ -142,7 +132,6 @@ function App() {
     });
   };
 
-  // Add new order to history with date and payment info
   const addOrderToHistory = (orderedItems, paymentMethod = "Pay on Delivery") => {
     const newOrder = {
       id: Date.now(),
@@ -153,14 +142,12 @@ function App() {
     setOrderHistory((prev) => [...prev, newOrder]);
   };
 
-  // Calculate total number of items in cart
   const totalItems = Object.values(cartItems).reduce(
     (sum, categoryItems) =>
       sum + categoryItems.reduce((catSum, item) => catSum + item.quantity, 0),
     0
   );
 
-  // Clear all order history
   const clearHistory = () => {
     setOrderHistory([]);
     localStorage.removeItem("orderHistory");
@@ -172,22 +159,17 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/service" element={<Service />} />
-
-        {/* CoffeeShop route passes addToCart & totalItems */}
         <Route
           path="/coffee"
           element={<CoffeeShop addToCart={addToCart} totalItems={totalItems} />}
         />
 
-        {/* Individual category pages with addToCart */}
         <Route path="/espresso" element={<Espresso addToCart={addToCart} />} />
         <Route path="/refresher" element={<Refresher addToCart={addToCart} />} />
         <Route path="/tea" element={<Tea addToCart={addToCart} />} />
         <Route path="/pastry" element={<Pastry addToCart={addToCart} />} />
         <Route path="/blended" element={<BlendedBeverage addToCart={addToCart} />} />
 
-        {/* Cart page */}
         <Route
           path="/cart"
           element={
@@ -199,7 +181,6 @@ function App() {
           }
         />
 
-        {/* Payment page */}
         <Route
           path="/payment"
           element={
@@ -212,7 +193,6 @@ function App() {
           }
         />
 
-        {/* Order history page */}
         <Route
           path="/history"
           element={

@@ -5,7 +5,7 @@ import latte1 from "./assets/latte1.png";
 import espressoImg from "./assets/espresso.png";
 import { useNavigate } from "react-router-dom";
 const espressoProducts = [
-  { id: 1, name: "Caffee Macchiato", price:129.99, image: latte1 },
+  { id: 1, name: "Caffe Macchiato", price:129.99, image: latte1 },
   { id: 2, name: "Capuccino", price: 130.50, image: espressoImg},
   { id: 3, name: "Mocha", price: 220.90, image: mocha },
   { id: 4, name: "Latte", price: 159.00, image: latte },
@@ -22,12 +22,10 @@ export default function Espresso({ addToCart }) {
     }}>
       <h1 onClick={() => navigate("/coffee")}
         style={{ 
-          padding:"5px 0",
-          textAlign:"center",
+          padding:"5px 0", 
           width:"300px",
           borderRadius: "10px",
-          background: "#A17557",
-          borderRadius: "5px",
+          background: "#A17557", 
           border: "2px solid black",
           cursor: "pointer", 
           fontFamily: "Sansita Swashed,cursive",

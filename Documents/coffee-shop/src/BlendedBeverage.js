@@ -28,8 +28,6 @@ export default function BlendedBeverage({ addToCart }) {
           padding:"5px 0",
           textAlign:"center",
           width:"300px",
-          borderRadius: "10px",
-          textAlign: "center",
           background: "#A17557",
           borderRadius: "5px",
           border: "2px solid black",
@@ -71,7 +69,7 @@ export default function BlendedBeverage({ addToCart }) {
                 fontSize:"24px",
              
               }}
-              onClick={() => addToCart({ ...product, quantity: 1 }, "espresso")}
+              onClick={() => addToCart({ ...product, quantity: 1 }, "blended")}
             
             >
               🛒
