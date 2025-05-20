@@ -1,0 +1,37 @@
+<div class="profile-container">
+  <h1>Student Profile</h1>
+
+  <div *ngIf="studentProfile; else loading">
+    <div class="profile-details">
+      <div class="profile-item">
+        <strong>Name:</strong>
+        <span>{{ studentProfile.name }}</span>
+      </div>
+      <div class="profile-item">
+        <strong>Email:</strong>
+        <span>{{ studentProfile.email }}</span>
+      </div>
+      <div class="profile-item">
+        <strong>Courses:</strong>
+        <ul>
+          <li *ngFor="let course of studentProfile.courses">{{ course }}</li>
+        </ul>
+      </div>
+      <div class="profile-item">
+        <strong>Grades:</strong>
+        <ul>
+          <li *ngFor="let grade of studentProfile.grades">{{ grade }}</li>
+        </ul>
+      </div>
+      <div *ngIf="studentProfile.profilePicture">
+        <strong>Profile Picture:</strong>
+        <img [src]="studentProfile.profilePicture" alt="Profile Picture" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading template -->
+  <ng-template #loading>
+    <p>Loading profile...</p>
+  </ng-template>
+</div>

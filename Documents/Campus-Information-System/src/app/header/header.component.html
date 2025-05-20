@@ -1,0 +1,14 @@
+<div class="icon">
+  <a routerLink="/notification">
+    <span class="material-icons">notifications</span>
+  </a>
+
+  <div class="menu-dropdown" (click)="toggleMenu()">
+    <span class="material-icons">menu</span>
+    <div class="dropdown-content" *ngIf="showMenu">
+      <a routerLink="/profile">My Profile</a>
+      <a routerLink="/grades">Grades</a>
+      <a routerLink="/login">Login</a>
+    </div>
+  </div>
+</div>

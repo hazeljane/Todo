@@ -1,0 +1,46 @@
+<button routerLink="/header" class="back-button">
+  <span class="material-icons">arrow_back</span>
+  Go Back
+</button>
+
+<h2>Notifications</h2>
+
+<ul *ngIf="notifications.length > 0; else noNotifications">
+  <li *ngFor="let note of notifications" class="notification-card">
+    <strong>{{ note.title }}</strong>: {{ note.message }}
+    <button (click)="deleteNotification(note.id)">Delete</button>
+  </li>
+</ul>
+
+<ng-template #noNotifications>
+  <p>No notifications available.</p>
+</ng-template>
+
+<hr />
+
+<h3>Add New Notification</h3>
+<form (ngSubmit)="addNotification()" #notificationForm="ngForm">
+  <input
+    type="text"
+    placeholder="Title"
+    [(ngModel)]="newNotification.title"
+    name="title"
+    required
+  />
+  <div *ngIf="notificationForm.controls['title']?.invalid && notificationForm.controls['title']?.touched">
+    <p class="error-message">Title is required!</p>
+  </div>
+
+  <input
+    type="text"
+    placeholder="Message"
+    [(ngModel)]="newNotification.message"
+    name="message"
+    required
+  />
+  <div *ngIf="notificationForm.controls['message']?.invalid && notificationForm.controls['message']?.touched">
+    <p class="error-message">Message is required!</p>
+  </div>
+
+  <button type="submit" [disabled]="notificationForm.invalid">Add</button>
+</form>
